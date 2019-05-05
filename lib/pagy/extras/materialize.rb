@@ -43,8 +43,8 @@ class Pagy
       link, p_prev, p_next, p_page, p_pages = pagy_link_proc(pagy), pagy.prev, pagy.next, pagy.page, pagy.pages
 
       html = %(<div id="#{id}" class="pagy-materialize-combo-nav-js pagination" role="navigation" aria-label="pager">) \
-           + link.call(MARKER, '', %(style="display: none;" ))
-      (html << link.call(1, '', %(style="display: none;" ))) if defined?(TRIM)
+           + link.call(MARKER, '', 'style="display: none;" rel="nofollow"')
+      (html << link.call(1, '', 'style="display: none;" rel="nofollow"')) if defined?(TRIM)
       html << %(<div class="pagy-compact-chip role="group" style="height: 35px; border-radius: 18px; background: #e4e4e4; display: inline-block;">)
       html << '<ul class="pagination" style="margin: 0px;">'
       li_style = 'style="vertical-align: middle;"'

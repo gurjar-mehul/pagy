@@ -44,8 +44,8 @@ class Pagy
       link, p_prev, p_next, p_page, p_pages = pagy_link_proc(pagy), pagy.prev, pagy.next, pagy.page, pagy.pages
 
       html = %(<nav id="#{id}" class="pagy-foundation-combo-nav-js" role="navigation" aria-label="Pagination">) \
-           + link.call(MARKER, '', %(style="display: none;" ))
-        (html << link.call(1, '', %(style="display: none;" ))) if defined?(TRIM)
+           + link.call(MARKER, '', 'style="display: none;" rel="nofollow"')
+        (html << link.call(1, '', 'style="display: none;" rel="nofollow"')) if defined?(TRIM)
         html << %(<div class="input-group">)
         html << (p_prev ? link.call(p_prev, pagy_t('pagy.nav.prev'), 'style="margin-bottom: 0px;" aria-label="previous" class="prev button primary"')
                         : %(<a style="margin-bottom: 0px;" class="prev button primary disabled" href="#">#{pagy_t('pagy.nav.prev')}</a>))

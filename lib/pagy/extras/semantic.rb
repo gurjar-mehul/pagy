@@ -42,8 +42,8 @@ class Pagy
       link, p_prev, p_next, p_page, p_pages = pagy_link_proc(pagy, 'class="item"'), pagy.prev, pagy.next, pagy.page, pagy.pages
 
       html = %(<div id="#{id}" class="pagy-semantic-combo-nav-js ui compact menu" role="navigation" aria-label="pager">) \
-           + link.call(MARKER, '', %(style="display: none;" ))
-        (html << link.call(1, '', %(style="display: none;" ))) if defined?(TRIM)
+           + link.call(MARKER, '', 'style="display: none;" rel="nofollow"')
+        (html << link.call(1, '', 'style="display: none;" rel="nofollow"')) if defined?(TRIM)
         html << (p_prev ? %(#{link.call p_prev, '<i class="left small chevron icon"></i>', 'aria-label="previous"'})
                         : %(<div class="item disabled"><i class="left small chevron icon"></i></div>))
         input = %(<input type="number" min="1" max="#{p_pages}" value="#{p_page}" style="padding: 0; text-align: center; width: #{p_pages.to_s.length+1}rem; margin: 0 0.3rem">)

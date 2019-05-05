@@ -49,7 +49,7 @@ class Pagy
     def pagy_items_selector_js(pagy, id=pagy_id)
       p_vars = pagy.vars; p_items = p_vars[:items]; p_vars[:items] = "#{MARKER}-items-"
 
-      html = %(<span id="#{id}">) + %(<a href="#{pagy_url_for("#{MARKER}-page-", pagy)}"></a>)
+      html = %(<span id="#{id}">) + %(<a href="#{pagy_url_for("#{MARKER}-page-", pagy)}" style="display: none;" rel="nofollow"></a>)
       p_vars[:items] = p_items # restore the items
       input = %(<input type="number" min="1" max="#{p_vars[:max_items]}" value="#{p_items}" style="padding: 0; text-align: center; width: #{p_items.to_s.length+1}rem;">)
       html << %(#{pagy_t('pagy.items_selector_js', item_name: pagy_t(pagy.vars[:i18n_key], count: p_items), items_input: input, count: p_items)})

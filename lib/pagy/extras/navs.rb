@@ -25,8 +25,8 @@ class Pagy
       link, p_prev, p_next, p_page, p_pages = pagy_link_proc(pagy), pagy.prev, pagy.next, pagy.page, pagy.pages
 
       html = %(<nav id="#{id}" class="pagy-combo-nav-js-js pagination" role="navigation" aria-label="pager">) \
-             + link.call(MARKER, '', %(style="display: none;" ))
-        (html << link.call(1, '', %(style="display: none;" ))) if defined?(TRIM)
+             + link.call(MARKER, '', 'style="display: none;" rel="nofollow"')
+        (html << link.call(1, '', 'style="display: none;" rel="nofollow"')) if defined?(TRIM)
         html << (p_prev ? %(<span class="page prev">#{link.call p_prev, pagy_t('pagy.nav.prev'), 'aria-label="previous"'}</span> )
                         : %(<span class="page prev disabled">#{pagy_t('pagy.nav.prev')}</span> ))
         input = %(<input type="number" min="1" max="#{p_pages}" value="#{p_page}" style="padding: 0; text-align: center; width: #{p_pages.to_s.length+1}rem;">)

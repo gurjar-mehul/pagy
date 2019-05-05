@@ -46,8 +46,8 @@ class Pagy
       link, p_prev, p_next, p_page, p_pages = pagy_link_proc(pagy), pagy.prev, pagy.next, pagy.page, pagy.pages
 
       html = %(<nav id="#{id}" class="pagy-bulma-combo-nav-js" role="navigation" aria-label="pagination">) \
-           + link.call(MARKER, '', 'style="display: none;"')
-        (html << link.call(1, '', %(style="display: none;"))) if defined?(TRIM)
+           + link.call(MARKER, '', 'style="display: none;" rel="nofollow"')
+        (html << link.call(1, '', 'style="display: none;" rel="nofollow"')) if defined?(TRIM)
         html << %(<div class="field is-grouped is-grouped-centered" role="group">)
         html << (p_prev ? %(<p class="control">#{link.call(p_prev, pagy_t('pagy.nav.prev'), 'class="button" aria-label="previous page"')}</p>)
                         : %(<p class="control"><a class="button" disabled>#{pagy_t('pagy.nav.prev')}</a></p>))
